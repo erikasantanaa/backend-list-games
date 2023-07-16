@@ -16,16 +16,24 @@ import com.backend.listagames.services.GameListService;
 import com.backend.listagames.services.GameService;
 
 @RestController
-@RequestMapping(value = "/Lists")
+@RequestMapping(value = "/games")
 public class GameController {
 	//injetar o service no controler
 	
 	@Autowired
-	private GameListService gameListService;
-	
-	@GetMapping
-	public List<GameListDTO> findAll() {
-		List<GameListDTO> result = gameListService.findAll();
+	private GameService gameService;	
+
+	@GetMapping(value = "/{id}")
+	public GameDTO findById(@PathVariable Long id) {
+		GameDTO result = gameService.findById(id);
 		return result;
 	}
+
+	@GetMapping
+	public List<GameMinDTO> findAll() {
+		List<GameMinDTO> result = gameService.findAll();
+		return result;
+	}
+	
 }
+ 

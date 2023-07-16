@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.backend.listagames.entities.Game;
 import com.backend.listagames.entities.dto.GameDTO;
 import com.backend.listagames.entities.dto.GameMinDTO;
+import com.backend.listagames.projections.GameMinProjection;
 import com.backend.listagames.repositories.GameRepository;
 
 import jakarta.transaction.Transactional;
@@ -27,6 +28,14 @@ public class GameService {
 	@Transactional()
 	public List<GameMinDTO> findAll() {
 		List<Game> result = gameRepository.findAll();
+		List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO(x)).toList(); 
+		return dto;
+		
+	}
+	
+	@Transactional()
+	public List<GameMinDTO> findByList(Long listId) {
+		List<GameMinProjection> result = gameRepository.searchByList(listId);
 		List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO(x)).toList(); 
 		return dto;
 		
