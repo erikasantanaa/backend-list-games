@@ -9,10 +9,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+//mapeando
 @Entity
 @Table(name = "tb_game")
 public class Game {
 	
+	//mapeando
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
