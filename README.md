@@ -16,3 +16,10 @@ Aula 02:
 - Consultas SQL no Spring Data JPA
 - Projections
 
+Aula 03:
+- Ambiente local com Docker
+- Postgresql
+- Cors
+- Deploy Ci/CD no Railway
+
+
