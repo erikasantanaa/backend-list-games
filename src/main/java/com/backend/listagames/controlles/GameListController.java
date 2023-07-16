@@ -10,22 +10,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.listagames.entities.dto.GameDTO;
-import com.backend.listagames.entities.dto.GameListDTO;
 import com.backend.listagames.entities.dto.GameMinDTO;
-import com.backend.listagames.services.GameListService;
 import com.backend.listagames.services.GameService;
 
 @RestController
-@RequestMapping(value = "/Lists")
-public class GameController {
+@RequestMapping(value = "/games")
+public class GameListController {
 	//injetar o service no controler
 	
 	@Autowired
-	private GameListService gameListService;
+	private GameService gameService;
+	
+	@GetMapping(value = "/{id}")
+	public GameDTO findById(@PathVariable Long id) {
+		GameDTO result = gameService.findById(id);
+		return result;
+	}
 	
 	@GetMapping
-	public List<GameListDTO> findAll() {
-		List<GameListDTO> result = gameListService.findAll();
+	public List<GameMinDTO> findAll() {
+		List<GameMinDTO> result = gameService.findAll();
 		return result;
 	}
 }
