@@ -22,4 +22,8 @@ Aula 03:
 - Cors
 - Deploy Ci/CD no Railway
 
+Aula 04:
+- Design e implementação de endpoint
+- Verbo HTTP e idempotência
+
 
